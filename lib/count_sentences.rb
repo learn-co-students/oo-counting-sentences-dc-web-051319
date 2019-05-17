@@ -1,8 +1,6 @@
 require 'pry'
 
 class String
-
-  @@count = 0
   def sentence?
     if self.split('').pop == "."
       return true
@@ -29,17 +27,7 @@ class String
 
   def count_sentences
     array = self.split(/[.?!]/)
-    array.delete_if do |char|
-      char == ""
-    end
-    return array.length
-
-    # array.each do |char|
-    #   if char == "." || char == "?" || char == "!"
-    #     @@count+=1
-    #
-    #   end
-    # end
-    # return @@count
+    array.delete_if { |char| char == ""}
+     array.length
   end
 end
